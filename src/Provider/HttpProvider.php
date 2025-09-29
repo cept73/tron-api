@@ -150,10 +150,10 @@ class HttpProvider implements HttpProviderInterface
 
         $options = [
             'headers'   => $this->headers,
-            'body'      => json_encode($payload)
+            'json'      => $payload
         ];
 
-        $request = new Request($method, $url, $options['headers'], $options['body']);
+        $request = new Request($method, $url, $options['headers']);
         $rawResponse = $this->httpClient->send($request, $options);
 
         return $this->decodeBody(

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace IEXBase\TronAPI\Tests;
 
 use IEXBase\TronAPI\Provider\HttpProvider;
@@ -14,7 +17,7 @@ class TronTest extends TestCase
 
 
 
-    public function test_isValidProvider()
+    public function test_isValidProvider(): void
     {
         $tron = new Tron(new HttpProvider(self::FULL_NODE_API), new HttpProvider(self::SOLIDITY_NODE_API));
         $provider = new HttpProvider(self::FULL_NODE_API);
@@ -22,7 +25,7 @@ class TronTest extends TestCase
         $this->assertEquals($tron->isValidProvider($provider), true);
     }
 
-    public function test_setAddress()
+    public function test_setAddress(): void
     {
         $tron = new Tron(new HttpProvider(self::FULL_NODE_API), new HttpProvider(self::SOLIDITY_NODE_API));
         $tron->setAddress(self::ADDRESS_HEX);
@@ -31,7 +34,7 @@ class TronTest extends TestCase
         $this->assertEquals($tron->getAddress()['base58'], self::ADDRESS_BASE58);
     }
 
-    public function test_setDefaultBlock()
+    public function test_setDefaultBlock(): void
     {
         $tron = new Tron(new HttpProvider(self::FULL_NODE_API),new HttpProvider(self::SOLIDITY_NODE_API));
         $tron->setDefaultBlock(1);

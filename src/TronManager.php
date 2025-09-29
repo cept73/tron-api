@@ -166,7 +166,7 @@ class TronManager
      * @return array
      * @throws TronException
      */
-    public function request($url, array $params = [], string $method = 'post')
+    public function request($url, array $params = [], string $method = 'post'): array
     {
         $split = explode('/', $url);
         if(in_array($split[0], ['walletsolidity', 'walletextension'])) {
